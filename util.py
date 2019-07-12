@@ -40,9 +40,14 @@ def image_to_arduino(img):
     if ser is None:
         print("Call init_serial with path to Arduino first")
 
+    bytes = img.tobytes()
+
+    # Alternatively, to get any image format, use this:
+    """
     bytes = io.BytesIO()
     img.save(bytes, format="PNG")
     bytes = bytes.getvalue()
+    """
 
     ser.write(bytes)
 
