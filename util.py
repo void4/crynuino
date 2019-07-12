@@ -1,3 +1,9 @@
+from time import time, sleep
+from PIL import Image
+from mss import mss
+from serial import Serial
+import io
+
 def FPSLimit(fps):
 	delay = 1/fps
 	current = time()
@@ -8,6 +14,7 @@ def FPSLimit(fps):
 			current = now
 		yield
 
+print("Opened MSS")
 sct = mss()
 
 def screenshot(width, height):
@@ -22,3 +29,13 @@ def screenshot(width, height):
     img = img.resize((width, height))
 
     return img
+
+#ser = Serial("/dev/ttyACM0")#maybe USB0
+#print("Connected to serial: %s" % ser.name)
+
+def image_to_arduino(img):
+    bytes = io.BytesIO()
+    img.save(bytes, format="PNG")
+    bytes = bytes.getvalue()
+    print(bytes)
+    #ser.write()
