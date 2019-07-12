@@ -15,5 +15,3 @@ while True:
     img = screenshot(OLED_WIDTH, OLED_HEIGHT)
     image_to_arduino(img)
     next(fpslimit)
-
-img.show()
