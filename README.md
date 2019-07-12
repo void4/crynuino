@@ -9,10 +9,6 @@ chmod +x install.sh
 ./install.sh
 ```
 
-Alternatively,
-
-`pip install -r requirements.txt`
-
 ## Instructions
 
 1. Set the uppercase constant values in `main.py` (path to Arduino serial connection, display size)
