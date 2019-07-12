@@ -30,12 +30,20 @@ def screenshot(width, height):
 
     return img
 
-#ser = Serial("/dev/ttyACM0")#maybe USB0
-#print("Connected to serial: %s" % ser.name)
+ser = None
+def init_serial(path):
+    global ser
+    ser = Serial(path)
+    print("Connected to serial: %s" % ser.name)
 
 def image_to_arduino(img):
+    if ser is None:
+        print("Call init_serial with path to Arduino first")
+
     bytes = io.BytesIO()
     img.save(bytes, format="PNG")
     bytes = bytes.getvalue()
-    print(bytes)
-    #ser.write()
+
+    ser.write(bytes)
+
+    print("Image sent: %i bytes" % len(bytes))
