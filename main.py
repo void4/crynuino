@@ -1,7 +1,8 @@
 from mss import mss
 from PIL import Image
 
-OLED_WIDTH =
+OLED_WIDTH = 128
+OLED_HEIGHT = 64
 
 # The simplest use, save a screen shot of the 1st monitor
 sct = mss()
@@ -14,6 +15,6 @@ sct_img = sct.grab(monitor)
 
 img = Image.frombytes("RGB", sct_img.size, sct_img.bgra, "raw", "BGRX")
 
-#img = img.resize()
+img = img.resize((OLED_WIDTH, OLED_HEIGHT))
 
 img.show()
