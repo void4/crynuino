@@ -31,9 +31,9 @@ def screenshot(width, height):
     return img
 
 ser = None
-def init_serial(path):
+def init_serial(path, baud):
     global ser
-    ser = Serial(path)
+    ser = Serial(path, baud)
     print("Connected to serial: %s" % ser.name)
 
 def image_to_arduino(img):

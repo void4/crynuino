@@ -6,10 +6,11 @@ OLED_HEIGHT = 64
 FPS = 10
 
 ARDUINO_PATH = "/dev/ttyACM0"#maybe USB0
+BAUDRATE = 115200
 
 fpslimit = FPSLimit(FPS)
 
-init_serial(ARDUINO_PATH)
+init_serial(ARDUINO_PATH, BAUDRATE)
 
 while True:
     img = screenshot(OLED_WIDTH, OLED_HEIGHT)
