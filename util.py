@@ -42,7 +42,7 @@ def image_to_arduino(img):
 
 	# Convert to 1-bit-per-pixel black and white
 	# This applies dithering by default
-	blackwhite = img.convert("1")
+    blackwhite = img.convert("1")
 
 	# Results in W*H/8 bytes, 8 pixels per byte, little endian
     bytes = img.tobytes()
