@@ -50,6 +50,8 @@ def image_to_arduino(img):
 	# This applies dithering by default
 	blackwhite = img.convert("1")
 
+	blackwhite.save("output.jpg")
+
 	# Results in W*H/8 bytes, 8 pixels per byte, little endian
 	bytes = img.tobytes()
 
