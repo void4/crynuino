@@ -53,7 +53,7 @@ def image_to_arduino(img):
 	blackwhite.save("output.jpg")
 
 	# Results in W*H/8 bytes, 8 pixels per byte, little endian
-	bytes = img.tobytes()
+	bytes = blackwhite.tobytes()
 
 	# Alternatively, to get any image format, use this:
 	"""
