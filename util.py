@@ -16,7 +16,7 @@ def FPSLimit(fps):
 
 print("Opening screenshot tool")
 #sct = mss()
-import  pyscreenshot as ImageGrab
+#import pyscreenshot as ImageGrab
 
 def screenshot(width, height):
 
@@ -29,7 +29,8 @@ def screenshot(width, height):
 
 	img = Image.frombytes("RGB", sct_img.size, sct_img.bgra, "raw", "BGRX")
 	"""
-	img = ImageGrab.grab(backend='gnome-screenshot')
+	#img = ImageGrab.grab(backend='gnome-screenshot')
+	img = Image.open("image.jpg")
 
 	img = img.resize((width, height))
 
